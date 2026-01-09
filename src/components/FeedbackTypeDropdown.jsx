@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function DropdownButton() {
+export default function FeedbackTypeDropdown() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selected, setSelected] = useState("Idea");
 
