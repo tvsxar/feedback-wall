@@ -1,3 +1,5 @@
+import DropdownButton from "@/components/DropdownButton";
+
 export default function NewFeedbackPage() {
   return (
     <div className="flex flex-col justify-center items-center px-4 py-12 h-full">
@@ -30,14 +32,7 @@ export default function NewFeedbackPage() {
           ></textarea>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-            <select
-              className="bg-gray-900/50 border border-gray-800 rounded-2xl p-4 outline-none 
-            cursor-pointer focus:border-violet-500 appearance-none"
-            >
-              <option>Idea</option>
-              <option>Bug</option>
-              <option>Praise</option>
-            </select>
+            <DropdownButton />
 
             <button
               type="submit"
