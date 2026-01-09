@@ -26,7 +26,7 @@ function Navbar() {
                   : "bg-gray-800 text-gray-100 hover:bg-gray-700"
               }`}
             >
-              All Feedbacks
+              All <span className="hidden sm:inline">Feedbacks</span>
             </button>
           </Link>
 
@@ -40,7 +40,7 @@ function Navbar() {
                   : "bg-gray-800 text-gray-100 hover:bg-gray-700"
               }`}
             >
-              Leave Feedback
+              New <span className="hidden sm:inline">Feedback</span>
             </button>
           </Link>
         </div>
