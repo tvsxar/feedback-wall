@@ -1,8 +1,16 @@
+import FeedbackHeader from "@/components/FeedbackHeader";
+import FeedbackForm from "@/components/FeedbackForm";
+
 export default function NewFeedbackPage() {
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Leave a Feedback</h2>
-      {/* Здесь будет форма */}
+    <div
+      className="flex flex-col justify-center 
+    items-center px-4 py-12 h-full"
+    >
+      <div className="w-full max-w-lg space-y-10">
+        <FeedbackHeader />
+        <FeedbackForm />
+      </div>
     </div>
   );
 }
