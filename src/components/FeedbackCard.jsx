@@ -26,8 +26,8 @@ export default function FeedbackCard({ feedback }) {
     feedback.type === "Idea"
       ? "bg-linear-to-r from-violet-400/40 to-violet-500/30 text-violet-300"
       : feedback.type === "Bug"
-      ? "bg-linear-to-r from-rose-500/30 to-rose-600/30 text-rose-300"
-      : "bg-linear-to-r from-teal-400/40 to-teal-500/30 text-teal-300"
+      ? "bg-linear-to-r from-pink-400/40 to-pink-500/30 text-pink-300"
+      : "bg-linear-to-r from-blue-400/40 to-blue-500/30 text-blue-300"
   }`}
 >
   {feedback.type}
