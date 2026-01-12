@@ -1,9 +1,8 @@
 "use client";
 import { useState } from "react";
 
-export default function FeedbackTypeDropdown() {
+export default function FeedbackTypeDropdown({ type, setFeedbackData }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selected, setSelected] = useState("Idea");
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -20,7 +19,7 @@ export default function FeedbackTypeDropdown() {
                 hover:border-gray-700 transition-all shadow-sm cursor-pointer focus:ring-2 focus:ring-violet-500/50 outline-none"
       >
         <span className="font-medium text-gray-100 text-sm md:text-base">
-          {selected}
+          {type}
         </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +45,7 @@ export default function FeedbackTypeDropdown() {
               type="button"
               onClick={() => {
                 toggleDropdown();
-                setSelected(opt);
+                setFeedbackData((prev) => ({ ...prev, type: opt }));
               }}
               className={`block w-full text-left px-4 py-3 text-sm md:text-base transition-colors hover:bg-violet-500/10 ${
                 idx == 0
@@ -55,7 +54,9 @@ export default function FeedbackTypeDropdown() {
                   ? "hover:rounded-b-lg"
                   : ""
               } ${
-                true ? "text-gray-100 font-bold bg-violet-500/5" : "text-gray-300 hover:text-white"
+                true
+                  ? "text-gray-100 font-bold bg-violet-500/5"
+                  : "text-gray-300 hover:text-white"
               } cursor-pointer`}
             >
               {opt}
