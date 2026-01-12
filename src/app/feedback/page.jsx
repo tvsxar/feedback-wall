@@ -7,7 +7,7 @@ import ErrorOverlay from "@/components/ErrorOverlay";
 import EmptyState from "@/components/EmptyState";
 
 export default function FeedbacksPage() {
-  const { feedbacks, error, loading, fetchFeedbacks } = useFeedback();
+  const { feedbacks, listError, listLoading, fetchFeedbacks } = useFeedback();
 
   useEffect(() => {
     fetchFeedbacks();
@@ -15,8 +15,10 @@ export default function FeedbacksPage() {
 
   return (
     <div className="p-4">
-      {loading && <LoadingOverlay message="Fetching feedbacks..." />}
-      {error && <ErrorOverlay message={error} onRetry={fetchFeedbacks} />}
+      {listLoading && <LoadingOverlay message="Fetching feedbacks..." />}
+      {listError && (
+        <ErrorOverlay message={listError} onRetry={fetchFeedbacks} />
+      )}
 
       <div className="max-w-4xl mx-auto text-center mb-16">
         <h1
@@ -32,13 +34,15 @@ export default function FeedbacksPage() {
       </div>
 
       <div className="max-w-6xl mx-auto">
-        {loading && <LoadingOverlay message="Loading feedbacks..." />}
+        {listLoading && <LoadingOverlay message="Loading feedbacks..." />}
 
-        {error && <ErrorOverlay message={error} onRetry={fetchFeedbacks} />}
+        {listError && (
+          <ErrorOverlay message={listError} onRetry={fetchFeedbacks} />
+        )}
 
-        {!loading && !error && feedbacks.length === 0 && <EmptyState />}
+        {!listLoading && !listError && feedbacks.length === 0 && <EmptyState />}
 
-        {!loading && !error && feedbacks.length > 0 && (
+        {!listLoading && !listError && feedbacks.length > 0 && (
           <FeedbacksList feedbacks={feedbacks} />
         )}
       </div>
