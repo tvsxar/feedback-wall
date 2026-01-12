@@ -1,6 +1,6 @@
 export default function FeedbackHeader() {
   return (
-    <div className="text-center space-y-3">
+    <div className="text-center space-y-4">
       <h1
         className="text-4xl md:text-5xl font-extrabold tracking-tight 
         bg-linear-to-b from-white to-gray-400 bg-clip-text text-transparent"

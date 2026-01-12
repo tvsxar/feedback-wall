@@ -4,8 +4,15 @@ import Link from "next/link";
 
 function Navbar() {
   const pathname = usePathname();
-  const isAll = pathname === "/feedback";
+  const isAll =
+    pathname?.startsWith("/feedback") && pathname !== "/feedback/new";
   const isNew = pathname === "/feedback/new";
+
+  const baseBtn =
+    "px-4 py-2 rounded-full text-sm font-semibold transition-all cursor-pointer hover:bg-violet-400 hover:scale-101 transform duration-200 hover:drop-shadow-[0_0_6px_rgba(168,85,247,0.5)]";
+  const activeBtn =
+    "bg-violet-400 text-gray-900 shadow-md drop-shadow-[0_0_6px_rgba(168,85,247,0.5)] hover:brightness-110";
+  const inactiveBtn = "bg-gray-800 text-gray-100 hover:bg-gray-700";
 
   return (
     <header className="py-4 px-4 sm:px-12 lg:px-25 bg-gray-950 border-b border-gray-200/30">
@@ -20,11 +27,7 @@ function Navbar() {
         <div className="inline-flex bg-gray-800 rounded-full p-1">
           <Link href="/feedback">
             <button
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all cursor-pointer hover:bg-violet-400 hover:scale-101 transform duration-200 hover:drop-shadow-[0_0_6px_rgba(168,85,247,0.5)] ${
-                isAll
-                  ? "bg-violet-400 text-gray-900 shadow-md drop-shadow-[0_0_6px_rgba(168,85,247,0.5)] hover:brightness-110"
-                  : "bg-gray-800 text-gray-100 hover:bg-gray-700"
-              }`}
+              className={`${baseBtn} ${isAll ? activeBtn : inactiveBtn}`}
             >
               All <span className="hidden sm:inline">Feedbacks</span>
             </button>
@@ -34,11 +37,7 @@ function Navbar() {
 
           <Link href="/feedback/new">
             <button
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all cursor-pointer hover:bg-violet-400 hover:scale-101 transform duration-200 hover:drop-shadow-[0_0_6px_rgba(168,85,247,0.5)] ${
-                isNew
-                  ? "bg-violet-400 text-gray-900 shadow-md drop-shadow-[0_0_6px_rgba(168,85,247,0.5)] hover:brightness-110"
-                  : "bg-gray-800 text-gray-100 hover:bg-gray-700"
-              }`}
+              className={`${baseBtn} ${isNew ? activeBtn : inactiveBtn}`}
             >
               New <span className="hidden sm:inline">Feedback</span>
             </button>

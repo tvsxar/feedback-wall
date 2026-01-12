@@ -1,13 +1,14 @@
 import formatDate from "@/lib/utils";
 
 export default function FeedbackCard({ feedback }) {
-  const avatarLetter = feedback.name?.[0]?.toUpperCase() || "A";
+  const avatarLetter = feedback.name?.trim()?.[0]?.toUpperCase() || "A";
 
   return (
     <li
       className="flex flex-col gap-4 border border-gray-600 
       rounded-lg p-6 w-full bg-gray-800 
-      hover:scale-101 transition-all duration-300"
+      hover:scale-101 transition-all duration-300
+      h-full"
     >
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-3">
@@ -34,11 +35,11 @@ export default function FeedbackCard({ feedback }) {
         </div>
       </div>
 
-      <div className="bg-gray-800/50 rounded-lg py-2">
+      <div className="flex-1 bg-gray-800/50 rounded-lg py-2">
         <p className="text-gray-200">{feedback.text}</p>
       </div>
 
-      <div className="flex justify-end">
+      <div className="mt-auto flex justify-end">
         <p className="text-sm text-gray-500">
           {formatDate(feedback.createdAt)}
         </p>

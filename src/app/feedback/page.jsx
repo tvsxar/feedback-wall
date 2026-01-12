@@ -15,7 +15,7 @@ export default function FeedbacksPage() {
 
   return (
     <div className="p-4">
-      {listLoading && <LoadingOverlay message="Fetching feedbacks..." />}
+      {listLoading && <LoadingOverlay message="Loading feedbacks..." />}
       {listError && (
         <ErrorOverlay message={listError} onRetry={fetchFeedbacks} />
       )}
@@ -34,17 +34,13 @@ export default function FeedbacksPage() {
       </div>
 
       <div className="max-w-6xl mx-auto">
-        {listLoading && <LoadingOverlay message="Loading feedbacks..." />}
-
-        {listError && (
-          <ErrorOverlay message={listError} onRetry={fetchFeedbacks} />
-        )}
-
-        {!listLoading && !listError && feedbacks.length === 0 && <EmptyState />}
-
-        {!listLoading && !listError && feedbacks.length > 0 && (
-          <FeedbacksList feedbacks={feedbacks} />
-        )}
+        {!listLoading &&
+          !listError &&
+          (feedbacks.length > 0 ? (
+            <FeedbacksList feedbacks={feedbacks} />
+          ) : (
+            <EmptyState />
+          ))}
       </div>
     </div>
   );

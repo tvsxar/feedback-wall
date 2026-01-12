@@ -6,7 +6,9 @@ export default function ErrorOverlay({ message, onRetry }) {
       <h2 className="text-2xl md:text-4xl font-bold text-red-400 mb-4">
         Something went wrong
       </h2>
-      <p className="text-gray-300 mb-6">{message}</p>
+      <p className="text-gray-300 mb-6">
+        {message || "An unexpected error occurred."}
+      </p>
       {onRetry && (
         <button
           onClick={onRetry}

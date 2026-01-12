@@ -21,7 +21,7 @@ function FeedbackForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const success = addFeedback(feedbackData);
+    const success = await addFeedback(feedbackData);
 
     if (success) router.push("/feedback");
   }
@@ -43,6 +43,7 @@ function FeedbackForm() {
         name="text"
         value={feedbackData.text}
         onChange={handleInput}
+        required
         className="w-full bg-gray-900/50 border border-gray-800 rounded-2xl p-4 resize-none 
                 outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-all"
         placeholder="Share your thoughts, ideas or report a bug..."
@@ -57,14 +58,15 @@ function FeedbackForm() {
         <button
           type="submit"
           disabled={formLoading}
-          className="bg-violet-500 text-white rounded-2xl py-4 font-bold hover:bg-violet-400 
-          hover:scale-101 transition-all shadow-lg shadow-violet-500/20 cursor-pointer"
+          className={`bg-violet-500 text-white rounded-2xl py-4 font-bold shadow-lg shadow-violet-500/20 transition-all hover:scale-101 hover:bg-violet-400 ${
+            formLoading ? "opacity-60 cursor-not-allowed" : "cursor-pointer"
+          }`}
         >
           {formLoading ? "Sending..." : "Send feedback"}
         </button>
-
-        {formError && <p className="text-red-400">{formError}</p>}
       </div>
+
+      {formError && <p className="text-red-400">{formError}</p>}
     </form>
   );
 }
