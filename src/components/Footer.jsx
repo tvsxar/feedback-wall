@@ -1,4 +1,6 @@
 export default function Footer() {
+  const linkClasses = "hover:text-violet-400 transition hover:drop-shadow-[0_0_4px_rgba(168,85,247,0.7)]";
+
   return (
     <footer className="bg-gray-950 border-t border-gray-200/30 py-8 px-6 text-gray-400">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -22,7 +24,7 @@ export default function Footer() {
             href="https://github.com/tvsxar"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-violet-400 transition hover:drop-shadow-[0_0_4px_rgba(168,85,247,0.7)]"
+            className={linkClasses}
           >
             GitHub
           </a>
@@ -30,7 +32,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/poiatsyka/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-violet-400 transition hover:drop-shadow-[0_0_4px_rgba(168,85,247,0.7)]"
+            className={linkClasses}
           >
             LinkedIn
           </a>

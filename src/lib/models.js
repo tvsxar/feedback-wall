@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const feedbackSchema = new mongoose.Schema(
   {
     name: { type: String },
-    type: { type: String, required: true },
+    type: { type: String, required: true, enum: ["Idea", "Bug", "Praise"] },
     text: { type: String, required: true },
   },
   { timestamps: true }

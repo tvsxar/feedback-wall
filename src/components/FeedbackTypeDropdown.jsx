@@ -53,11 +53,7 @@ export default function FeedbackTypeDropdown({ type, setFeedbackData }) {
                   : idx == options.length - 1
                   ? "hover:rounded-b-lg"
                   : ""
-              } ${
-                true
-                  ? "text-gray-100 font-bold bg-violet-500/5"
-                  : "text-gray-300 hover:text-white"
-              } cursor-pointer`}
+              } text-gray-100 font-bold bg-violet-500/5 cursor-pointer`}
             >
               {opt}
             </button>
