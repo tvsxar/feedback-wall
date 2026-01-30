@@ -1,8 +1,7 @@
 # Feedback Wall (Flowly)
 
-A full-stack feedback application built with Next.js (App Router) and MongoDB.
-The app allows users to leave anonymous feedback, view community feedback, and explore interactive UI components with a modern design.
-The main focus of the project is server-side feedback storage and retrieval using Next.js API routes, and dynamic, responsive frontend with Tailwind CSS.
+A high-performance Full-stack Feedback Ecosystem. Built with Next.js 16, MongoDB, and Docker.
+This project demonstrates a modern approach to server-side feedback management, featuring anonymous interactions, real-time-like UI updates, and a robust containerized infrastructure.
 
 ---
 
@@ -23,7 +22,7 @@ The main focus of the project is server-side feedback storage and retrieval usin
 
 Feedback Wall allows users to:
 
-- Leave feedback with type: Idea, Bug, or Praise
+- Leave feedback with type: `Idea`, `Bug`, or `Praise`
 - View community feedback in real-time
 - Experience a fully responsive and modern UI
 - Handle feedback storage and retrieval via Next.js API routes
@@ -60,6 +59,7 @@ Try it online via our [Live Demo](https://feedback-wall-next.onrender.com)!
 - **MongoDB** — database for storing feedback
 - **Mongoose** — ODM for MongoDB
 - **REST API** — implemented with Next.js API routes
+- **Docker & Docker Compose** — for containerization and environment orchestration
 
 ---
 
@@ -70,31 +70,41 @@ Try it online via our [Live Demo](https://feedback-wall-next.onrender.com)!
 3. API routes handle database connection and CRUD via **Mongoose**
 4. Feedback list updates dynamically in the frontend
 5. UI components (cards, forms, loaders) ensure consistent experience
+6. In development, Docker Volumes ensure instant Hot Reload for the entire app
 
 ---
 
 ## Installation & Run
 
-### Setup
+### 1. The Quickest Way (Docker Compose)
+
+_Requires [Docker](https://www.docker.com/get-started/)_
+
+1. Create a `.env` file in the root directory:
+   ```bash
+   MONGO_URI=your_mongo_connection_string
+   ```
+2. Run the container:
+   ```bash
+   docker-compose up --build
+   ```
+3. Open http://localhost:3000 in your browser
+
+### 2. Manual Setup
 
 ```bash
 npm install
-npm i mongoose
 ```
 
-Create a `.env` file inside `backend/` with the following:
-
-```env
-PORT=1333
+Create a .env file in the root directory:
+```bash
 MONGO_URI=your_mongo_connection_string
 ```
-
 ```bash
 npm run dev
 ```
 
-Frontend + API will be available at:
-http://localhost:3000
+Frontend + API will be available at: http://localhost:3000
 
 ---
 
@@ -102,6 +112,8 @@ http://localhost:3000
 
 ```
 feedback-wall/
+├─ docker-compose.yml
+├─ Dockerfile
 ├─ app/
 │  ├─ feedback/
 │  │  ├─ page.js          # Feedback list page

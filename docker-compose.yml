@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  next-app:
+    build: .
+    container_name: feedback-wall-container
+    ports: 
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - WATCHPACK_POLLING=true
